@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>dontask — Digital Agency | Веб-разработка, SEO, AI-продвижение</title>
+    <meta name="title" content="dontask — Digital Agency | Веб-разработка, SEO, AI-продвижение">
+    <meta name="description" content="Digital-агентство полного цикла. Мы не задаем вопросов, мы создаем результат. Разработка сайтов на React, SEO-оптимизация и вывод брендов в топ ИИ-поиска (ChatGPT, Perplexity).">
+    <meta name="keywords" content="digital agency, разработка сайтов, SEO продвижение, AI поиск, ChatGPT оптимизация, веб студия Ташкент, dontask studio, разработка на react">
+    <meta name="author" content="dontask studio">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://dontask.studio/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dontask.studio/">
+    <meta property="og:title" content="dontask — Digital Agency | Логика. Структура. Результат.">
+    <meta property="og:description" content="Создаем высокотехнологичные цифровые решения. От хардкорной разработки до Performance-маркетинга.">
+    <meta property="og:image" content="https://i.ibb.co/VYp00fth/26.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dontask.studio/">
+    <meta property="twitter:title" content="dontask — Digital Agency">
+    <meta property="twitter:description" content="Цифровой интеллект, который диктует правила рынка.">
+    <meta property="twitter:image" content="https://i.ibb.co/VYp00fth/26.png">
+
+    <!-- JSON-LD Schema (SEO Gold Standard) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "dontask studio",
+      "alternateName": "dontask digital agency",
+      "url": "https://dontask.studio/",
+      "logo": "https://dontask.studio/favicon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "",
+        "contactType": "customer service",
+        "email": "donskikhas@gmail.com"
+      },
+      "sameAs": [
+        "https://instagram.com/dontask.studio",
+        "https://t.me/asdonskikh"
+      ],
+      "description": "Digital-агентство полного цикла. Разработка сайтов, SEO и AI-оптимизация."
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-accent: #6366F1;
+            --bg-main: #000000;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: #ffffff;
+            scroll-behavior: smooth;
+            cursor: auto;
+        }
+
+        /* Кастомный курсор скрыт по умолчанию для ВСЕХ */
+        #cursor {
+            display: none;
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: difference;
+            left: 0;
+            top: 0;
+            /* Плавный переход для scale */
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+
+        /* Показываем кастомный курсор ТОЛЬКО на устройствах с мышью */
+        @media (pointer: fine) and (hover: hover) {
+            body {
+                cursor: none;
+            }
+            #cursor {
+                display: block;
+            }
+        }
+
+        /* Гарантированное скрытие на любых тач-интерфейсах через CSS */
+        @media (max-width: 1024px), (pointer: coarse) {
+            #cursor {
+                display: none !important;
+                visibility: hidden !important;
+            }
+            body {
+                cursor: auto !important;
+            }
+        }
+        
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.08;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            filter: contrast(150%) brightness(100%);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            color: transparent;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 30s linear infinite;
+        }
+
+        ::selection {
+            background-color: var(--indigo-accent);
+            color: #ffffff;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--indigo-accent); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div id="cursor"></div>
+    <div id="root"></div>
+    <script>
+        const cursor = document.getElementById('cursor');
+        
+        // Детектор первого касания: если юзер коснулся экрана, убиваем кастомный курсор навсегда
+        const disableCustomCursor = () => {
+            if (cursor) {
+                cursor.remove();
+                document.body.style.cursor = 'auto';
+                window.removeEventListener('touchstart', disableCustomCursor);
+            }
+        };
+        window.addEventListener('touchstart', disableCustomCursor);
+
+        // Логика движения только для десктопов
+        if (cursor && window.matchMedia('(pointer: fine) and (hover: hover)').matches) {
+            document.addEventListener('mousemove', (e) => {
+                const target = e.target;
+                const isHoverable = target.closest('a') || target.closest('button');
+                const scale = isHoverable ? 6 : 1;
+                
+                // Объединяем перемещение и масштаб, чтобы они не конфликтовали
+                cursor.style.transform = `translate3d(${e.clientX - 6}px, ${e.clientY - 6}px, 0) scale(${scale})`;
+            });
+        }
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
